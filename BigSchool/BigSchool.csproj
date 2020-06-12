@@ -229,6 +229,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\ViewModels\CourseViewModel.cs" />
+    <Compile Include="Views\ViewModels\CustomViewModel.cs" />
+    <Compile Include="Views\ViewModels\FutureDate.cs" />
+    <Compile Include="Views\ViewModels\ValidTime.cs" />
+    <Compile Include="Views\ViewModels\ValidTimeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -292,7 +296,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CustomViewModel\" />
+    <Folder Include="Views\FutureDate\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\ValidTime\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
