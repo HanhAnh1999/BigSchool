@@ -16,8 +16,7 @@ namespace BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-        // GET: Course
-        [Authorize]
+        // GET: Course     
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
