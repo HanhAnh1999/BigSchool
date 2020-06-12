@@ -16,7 +16,6 @@ namespace BigSchool.Models
         //public object Courses { get; internal set; }
 
         public DbSet<Attendance> Attendences { get; set; }
-        public object Course { get; internal set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

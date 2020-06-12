@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace BigSchool.Models
 {
-    public class Attendance : Controller
+    public class Attendance
     {
         // GET: Attendance
         public Course Course { get; set; }
