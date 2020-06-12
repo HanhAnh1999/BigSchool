@@ -10,6 +10,38 @@
 
 <div class="row">
     <div class="col-md-4">
+        <ul>
+            @foreach (var course in Model)
+            {
+                <li>
+                    @course.DateTime - @course.Lecturer.Name
+                </li>
+            }
+        </ul>
+
+        <ul class="course">
+            @foreach (var course in Model)
+            {
+                <li>
+                    <div class="date">
+                        <div class="month">
+                            @course.DateTime,toString("MM")
+                        </div>
+                        <div class="day">
+                            @course.DateTime,toString("dd")
+                        </div>                  
+                    </div>
+                    <div class="detail">
+                        <span class="lecturer">
+                            @course.Lecturer.Name
+                        </span>
+                        <span class="category">
+                            @course.Category.Name
+                        </span>
+                    </div>
+                </li>
+            }
+        </ul>
         <h2>Getting started</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
