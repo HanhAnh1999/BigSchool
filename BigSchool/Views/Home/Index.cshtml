@@ -55,10 +55,39 @@
                     {
                         alert("Something failed!");
                     });
+
+                    //$(".js-toggle-follow").click(function (e) {
+                    //    var button = $(e.target);
+                    //    $.post("/api/following", { followeeId: button.attr("data-user-id") })
+                    //        .done(function () {
+                    //            button.text("Following");
+                    //        })
+                    //        .fail(function () {
+                    //            alert("Something failed!");
+                    //        });
+                    //});
             });
            
         </script>
      }
+
+    @*<div class="details">
+        <span class="lecturer">
+            @course.Lectureer.Name
+            @if (Model.ShowAction)
+            {
+                <button class="btn btn-link btn-sm js-toogle-attendance"></button>
+            }
+        </span>
+        <span class="category">
+              @course.Category.Name
+        </span>
+        @if (Mode.ShowAcction)
+        {
+            <button data-course-id="@course.Id" class="btn"></button>
+        }
+
+    </div>*@
 </div>
 
 

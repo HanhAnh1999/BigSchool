@@ -1,4 +1,5 @@
 ﻿using BigSchool.Models;
+using BigSchool.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,13 @@ namespace BigSchool.Controllers
                 .Where(c => c.Datetime > DateTime.Now);
 
             return View();
+
+            //var viewModel = new CourseViewModel
+            //{
+            //    UpcommingCourse = upcommingCourses,
+            //    ShowAction = User.Identity.IsAuthenticated
+            //};
+            //return View(viewModel);
         }
 
         public ActionResult About()

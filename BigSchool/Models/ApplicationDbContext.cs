@@ -17,6 +17,8 @@ namespace BigSchool.Models
 
         public DbSet<Attendance> Attendences { get; set; }
 
+        //public DbSet<Following> Followings { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -34,6 +36,18 @@ namespace BigSchool.Models
                 .WithMany()
                 .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<ApplicationUser>()
+            //    .HasMany(u => u f.Followee)
+            //    .WithRequired(f => f.Followee)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<ApplicationUser>()
+            //    .HasMany(u => u f.Followees)
+            //    .WithRequired(f => f.Follower)
+            //    .WillCascadeOnDelete(false);
+
+            //base.OnModelCreating(modelBuilder);
         }
 
     }
