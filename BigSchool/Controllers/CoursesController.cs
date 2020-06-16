@@ -24,7 +24,7 @@ namespace BigSchool.Views.COURSE_S
         {
             var viewModel = new CourseViewModel
             {
-                Categoiries = _dbContext.Categories.ToList()
+                Categories = _dbContext.Categories.ToList()
             };
             return View(viewModel);
         }
@@ -36,7 +36,7 @@ namespace BigSchool.Views.COURSE_S
         {
             if (!ModelState.IsValid)
             {
-                viewModel.Categoiries = _dbContext.Categories.ToList();
+                viewModel.Categories = _dbContext.Categories.ToList();
                 return View("Create", viewModel);
             }
             var course = new Course

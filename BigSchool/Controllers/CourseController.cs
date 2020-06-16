@@ -21,7 +21,7 @@ namespace BigSchool.Controllers
         {
             var viewModel = new CourseViewModel
             {
-                Categoiries = _dbContext.Categories.ToList()
+                Categories = _dbContext.Categories.ToList()
             };
             return View(viewModel);
         }
