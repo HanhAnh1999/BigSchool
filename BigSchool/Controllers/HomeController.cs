@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace BigSchool.Controllers
 {
@@ -19,18 +20,18 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
             var upcommingCourses = _dbContext.Courses
-                //.Include(c => c.Lectuter)
-                //.Include(c => c.Category )
+                .Include(c => c.Lecturer)
+                .Include(c => c.Category )
                 .Where(c => c.Datetime > DateTime.Now);
 
-            return View();
+            return View(upcommingCourses);
 
-            //var viewModel = new CourseViewModel
-            //{
-            //    UpcommingCourse = upcommingCourses,
-            //    ShowAction = User.Identity.IsAuthenticated
-            //};
-            //return View(viewModel);
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

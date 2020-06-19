@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BigSchool.DTOs;
+using BigSchool.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +10,7 @@ using System.Web.Http;
 
 namespace BigSchool.Controllers
 {
-    private readonly ApplicationDbContext _dbContext;
+    //private readonly ApplicationDbContext _dbContext;
 
     public class FollowingsController : ApiController
     {
@@ -20,22 +23,22 @@ namespace BigSchool.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Follow (FollowingDTO followingDTO)
+        public IHttpActionResult Follow(FollowingDTO followingDTO)
         {
-            //var userId = User.Identity.GetUserId();
-            //    if(_dbContext.Attendances.Any(a => a.FollowerId == userId && a.FolloweeId == followingDTO.FolloweeId))
-            //    return BadRequest("Following already exists!")
+            var userId = User.Identity.GetUserId();
+            if (_dbContext.Followings.Any(f  => f.FollowerId == userId && f.FolloweeId == followingDTO.FolloweeId))
+                return BadRequest("Following already exists!");
 
-            //    var following = new Following
-            //    {
-            //        FollowerId = userId,
-            //        FolloweeId = followingDTO.FolloweeId()
-            //    };
+                var following = new Following
+                {
+                    FollowerId = userId,
+                    FolloweeId = followingDTO.FolloweeId
+                };
 
-            //    _dbContext.Following.Add(following);
-            //    _dbContext.SaveChangges();
+            _dbContext.Followings.Add(following);
+            _dbContext.SaveChanges();
 
-            //    return Ok();
+            return Ok();
         }
 
 

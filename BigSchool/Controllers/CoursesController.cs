@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace BigSchool.Views.COURSE_S
 {
     public class CoursesController : Controller
@@ -54,26 +55,26 @@ namespace BigSchool.Views.COURSE_S
             return RedirectToAction("Index", "Home");
         }
 
-        //[Authorize]
+        [Authorize]
 
-        //public ActionResult Attending()
-        //{
-        //    var userId = User.Identity.GetUserId();
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
 
-        //    var courses = _dbContext.Attendences
-        //        .Where(a => a.AttendeeId == userId)
-        //        .Select(a => a.Course)
-        //        .Include(l => l.Lecturer)
-        //        .Include(l => l.Category)
-        //        .ToString();
+            var courses = _dbContext.Attendences
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToString();
 
-        //    var viewModel = new CoursesViewModel
-        //    {
-        //        UpscommingCourses = courses,
-        //        ShowAction = User.Identity.IsAuthenticated
-        //    };
+            var viewModel = new CourseViewModel
+            {
+                //UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
 
-        //    return View(viewModel);
+            return View(viewModel);
         }
     }
 }

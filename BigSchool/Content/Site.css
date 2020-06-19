@@ -45,13 +45,13 @@ textarea {
 }
 .course > li
 {
-    position:relative;
+    position: relative;
     margin-bottom: 30px;
 }
 .course > li .date 
 {
     text-align: center;
-    background-color:indigo;
+    background-color: hotpink;
     color:white;
     width: 60px;
     border-radius: 8px;

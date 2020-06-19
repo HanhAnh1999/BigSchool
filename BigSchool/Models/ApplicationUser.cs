@@ -18,8 +18,8 @@ namespace BigSchool.Models
 
         public string Name { get; set; }
 
-        //public ICollection<Following> Followers { get; set; }
-        //public ICollection<Following> Followees { get; set; }
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Followees { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -29,11 +29,11 @@ namespace BigSchool.Models
             return userIdentity;
         }
 
-        //public ApplicationUser()
-        //{
-        //    Followers = new Collection<Following>();
-        //    Followees = new Collection<Following>();
-        //}
+        public ApplicationUser()
+        {
+            Followers = new Collection<Following>();
+            Followees = new Collection<Following>();
+        }
     }
 
 }
