@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace BigSchool.Views.ViewModels
 {
     public class CourseViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Place { get; set; }
 
@@ -33,5 +35,15 @@ namespace BigSchool.Views.ViewModels
 
         public IEnumerable<Course> UpcommingCourses { get; set; }
         public bool ShowAction { get; set; }
+
+        public string Heading { get; set; }
+        public string  Action
+        {
+            get { return (Id != 0) ? "Update" : "Create"; }
+        }
+        //public static implicit operator CourseViewModel(CourseViewModel v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

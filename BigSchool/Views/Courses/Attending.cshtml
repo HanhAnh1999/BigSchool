@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Attending</h2>
+
+<ul class="course">
+    @foreach (var course in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @course.Datetime,toString("MM")
+                </div>
+                <div class="day">
+                    @course.Datetime,toString("dd")
+                </div>
+            </div>
+            <div class="detail">
+                <span class="lecturer">
+                    @course.Lecturer.Name
+                </span>
+                <span class="category">
+                    @course.Category.Name
+                </span>
+                <button data-course-id="@course.Id"
+                        class="btn btn-default btn-sm js-toogle-attendance">
+                    Think?
+                </button>
+            </div>
+        </li>
+    }
+</ul>
